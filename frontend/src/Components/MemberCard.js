@@ -375,14 +375,14 @@ class MemberCard extends Component {
 						<Frag>
 						<div className="App-memberWrapper">
 							<div id="properties-panel">
-							<h1>
+							<h1 className="App-name">
 								{memb.display_name ? memb.display_name.toUpperCase() : memb.name.toUpperCase()} ({memb.id})
 							</h1>
 							<img className="App-memberAvatar" style={{boxShadow: "0 0 0 5px #"+(memb.color ? memb.color : "aaa")}} src={memb.avatar_url || "/default.png"} alt={memb.name + "'s avatar"}/>
-							{memb.display_name && <span className="App-tagline">aka {memb.name}</span>}
+							{memb.display_name && <span className="App-tagline App-aka">aka {memb.name}</span>}
 							{(memb.proxy_tags[0]) && < Dropdown style={{width: "90%"}} list={[{name: "Proxy list"}, ...memb.proxy_tags.map(p => {return {name: `${p.prefix || ""}text${p.suffix || ""}`}})]} type="1" />}
-							<span className="App-tagline">{memb.pronouns || "(N/A)"} || {memb.birthday || "(N/A)"}</span>
-							<span className="App-tagline">Created: {this.formatTime(memb.created)}</span>
+							<span className="App-tagline App-pronouns">{memb.pronouns || "(N/A)"} || {memb.birthday || "(N/A)"}</span>
+							<span className="App-tagline App-created">Created: {this.formatTime(memb.created)}</span>
 							<div className="App-description" dangerouslySetInnerHTML={{__html: memb.tmpdescription || "<p>(no description)</p>"}}></div>
 							</div>
 						</div>
